@@ -103,13 +103,40 @@ upper_frame.rowconfigure(0, weight=1)
 
 # RIGHT > UPPER FRAME > MATRIX A
 
-a_frame = Frame(upper_frame, height="275", width="325", bg="red")
+a_frame = Frame(upper_frame, height="275", width="325")
 a_frame.grid(row=0, column=0, sticky="news")
+a_frame.rowconfigure(0, weight=1)
+a_frame.rowconfigure(1, weight=1)
+a_frame.columnconfigure(0, weight=1)
+
+a_frame_header = Frame(a_frame, height="65", width="325", bg="#c5c6c7")
+a_frame_header.grid(row=0, column=0, sticky="news")
+
+a_header = Label(a_frame_header, text="MATRIX A", font=('Arial', 16), fg="#1f2833",
+                 bg="#c5c6c7")
+a_header.place(x=110, y=20)
+
+a_frame_matrix = Frame(a_frame, height="210", width="325", bg="blue")
+a_frame_matrix.grid(row=1, column=0, sticky="news")
+
 
 # RIGHT > UPPER FRAME > MATRIX B
 
-b_frame = Frame(upper_frame, height="275", width="325", bg="green")
+b_frame = Frame(upper_frame, height="275", width="325")
 b_frame.grid(row=0, column=1, sticky="news")
+b_frame.rowconfigure(0, weight=1)
+b_frame.rowconfigure(1, weight=1)
+b_frame.columnconfigure(0, weight=1)
+
+b_frame_header = Frame(b_frame, height="65", width="325", bg="#c5c6c7")
+b_frame_header.grid(row=0, column=0, sticky="news")
+
+b_header = Label(b_frame_header, text="MATRIX B", font=('Arial', 16), fg="#1f2833",
+                 bg="#c5c6c7")
+b_header.place(x=110, y=20)
+
+b_frame_matrix = Frame(b_frame, height="210", width="325", bg="purple")
+b_frame_matrix.grid(row=1, column=0, sticky="news")
 
 # RIGHT > LOWER FRAME
 
