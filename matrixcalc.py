@@ -143,4 +143,21 @@ b_frame_matrix.grid(row=1, column=0, sticky="news")
 lower_frame = Frame(right_frame, height="275", width="650", bg="pink")
 lower_frame.grid(row=1, column=0, sticky="news")
 
+# RIGHT > LOWER > RESULT FRAME
+
+result_frame = Frame(lower_frame, height="275", width="370", bg="red")
+result_frame.grid(row=0, column=0, sticky="news")
+
+result_frame_header = Frame(result_frame, height="65", width="370", bg="#c5c6c7")
+result_frame_header.grid(row=0, column=0, sticky="news")
+
+result_header = Label(result_frame_header, text="RESULT", font=('Arial', 16), fg="#1f2833",
+                 bg="#c5c6c7")
+result_header.place(x=140, y=20)
+
+# RIGHT > LOWER > EXTRA FRAME
+
+extra_frame = Frame(lower_frame, height="275", width="280", bg="green")
+extra_frame.grid(row=0, column=1, sticky="news")
+
 window.mainloop()
