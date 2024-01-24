@@ -116,7 +116,7 @@ a_header = Label(a_frame_header, text="MATRIX A", font=('Arial', 16), fg="#1f283
                  bg="#c5c6c7")
 a_header.place(x=110, y=20)
 
-a_frame_matrix = Frame(a_frame, height="210", width="325", bg="blue")
+a_frame_matrix = Frame(a_frame, height="210", width="325", bg="#c5c6c7")
 a_frame_matrix.grid(row=1, column=0, sticky="news")
 
 
@@ -135,18 +135,26 @@ b_header = Label(b_frame_header, text="MATRIX B", font=('Arial', 16), fg="#1f283
                  bg="#c5c6c7")
 b_header.place(x=110, y=20)
 
-b_frame_matrix = Frame(b_frame, height="210", width="325", bg="purple")
+b_frame_matrix = Frame(b_frame, height="210", width="325", bg="#c5c6c7")
 b_frame_matrix.grid(row=1, column=0, sticky="news")
 
 # RIGHT > LOWER FRAME
 
 lower_frame = Frame(right_frame, height="275", width="650", bg="pink")
 lower_frame.grid(row=1, column=0, sticky="news")
+lower_frame.rowconfigure(0, weight=1)
+lower_frame.columnconfigure(0, weight=1)
+lower_frame.columnconfigure(1, weight=1)
+
 
 # RIGHT > LOWER > RESULT FRAME
 
 result_frame = Frame(lower_frame, height="275", width="370", bg="red")
 result_frame.grid(row=0, column=0, sticky="news")
+result_frame.columnconfigure(0, weight=1)
+result_frame.rowconfigure(0, weight=1)
+result_frame.rowconfigure(1, weight=1)
+
 
 result_frame_header = Frame(result_frame, height="65", width="370", bg="#c5c6c7")
 result_frame_header.grid(row=0, column=0, sticky="news")
@@ -154,6 +162,10 @@ result_frame_header.grid(row=0, column=0, sticky="news")
 result_header = Label(result_frame_header, text="RESULT", font=('Arial', 16), fg="#1f2833",
                  bg="#c5c6c7")
 result_header.place(x=140, y=20)
+
+result_frame_matrix = Frame(result_frame, height="210", width="370", bg="#c5c6c7")
+result_frame_matrix.grid(row=1, column=0, sticky="news")
+
 
 # RIGHT > LOWER > EXTRA FRAME
 
