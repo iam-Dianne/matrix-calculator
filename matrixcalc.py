@@ -16,7 +16,7 @@ window.iconphoto(True, icon)
 
 left_frame = Frame(window, height="300", width="250")
 left_frame.grid(row=0, column=0, sticky="nesw")
-#left_frame.columnconfigure(0, weight=1)
+left_frame.columnconfigure(0, weight=1)
 left_frame.rowconfigure(0, weight=1)
 left_frame.rowconfigure(1, weight=1)
 
@@ -103,7 +103,7 @@ upper_frame.rowconfigure(0, weight=1)
 
 # RIGHT > UPPER FRAME > MATRIX A
 
-a_frame = Frame(upper_frame, height="275", width="325")
+a_frame = Frame(upper_frame, height="275", width="325", bg="#c5c6c7")
 a_frame.grid(row=0, column=0, sticky="news")
 a_frame.rowconfigure(0, weight=1)
 a_frame.rowconfigure(1, weight=1)
@@ -117,12 +117,49 @@ a_header = Label(a_frame_header, text="MATRIX A", font=('Arial', 16), fg="#1f283
 a_header.place(x=110, y=20)
 
 a_frame_matrix = Frame(a_frame, height="210", width="325", bg="#c5c6c7")
-a_frame_matrix.grid(row=1, column=0, sticky="news")
+a_frame_matrix.grid(row=1, column=0, sticky="news", padx=50)
+a_frame_matrix.rowconfigure(0, weight=1)
+a_frame_matrix.rowconfigure(1, weight=1)
+a_frame_matrix.rowconfigure(2, weight=1)
+a_frame_matrix.columnconfigure(0,  weight=1)
+a_frame_matrix.columnconfigure(1, weight=1)
+a_frame_matrix.columnconfigure(2, weight=1)
+
+# A MATRIX ENTRY WIDGETS
+
+entry_a11 = Entry(a_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_a11.grid(row=0, column=0)
+
+entry_a12 = Entry(a_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_a12.grid(row=0, column=1)
+
+entry_a13 = Entry(a_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_a13.grid(row=0, column=2)
+
+entry_a21 = Entry(a_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_a21.grid(row=1, column=0)
+
+entry_a22 = Entry(a_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_a22.grid(row=1, column=1)
+
+entry_a23 = Entry(a_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_a23.grid(row=1, column=2)
+
+entry_a31 = Entry(a_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_a31.grid(row=2, column=0)
+
+entry_a32 = Entry(a_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_a32.grid(row=2, column=1)
+
+entry_a33 = Entry(a_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_a33.grid(row=2, column=2)
+
+
 
 
 # RIGHT > UPPER FRAME > MATRIX B
 
-b_frame = Frame(upper_frame, height="275", width="325")
+b_frame = Frame(upper_frame, height="275", width="325", bg="#c5c6c7")
 b_frame.grid(row=0, column=1, sticky="news")
 b_frame.rowconfigure(0, weight=1)
 b_frame.rowconfigure(1, weight=1)
@@ -136,7 +173,43 @@ b_header = Label(b_frame_header, text="MATRIX B", font=('Arial', 16), fg="#1f283
 b_header.place(x=110, y=20)
 
 b_frame_matrix = Frame(b_frame, height="210", width="325", bg="#c5c6c7")
-b_frame_matrix.grid(row=1, column=0, sticky="news")
+b_frame_matrix.grid(row=1, column=0, sticky="news", padx=50)
+b_frame_matrix.rowconfigure(0, weight=1)
+b_frame_matrix.rowconfigure(1, weight=1)
+b_frame_matrix.rowconfigure(2, weight=1)
+b_frame_matrix.columnconfigure(0,  weight=1)
+b_frame_matrix.columnconfigure(1, weight=1)
+b_frame_matrix.columnconfigure(2, weight=1)
+
+# B MATRIX ENTRY WIDGETS
+
+entry_b11 = Entry(b_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_b11.grid(row=0, column=0)
+
+entry_b12 = Entry(b_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_b12.grid(row=0, column=1)
+
+entry_b13 = Entry(b_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_b13.grid(row=0, column=2)
+
+entry_b21 = Entry(b_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_b21.grid(row=1, column=0)
+
+entry_b22 = Entry(b_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_b22.grid(row=1, column=1)
+
+entry_b23 = Entry(b_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_b23.grid(row=1, column=2)
+
+entry_b31 = Entry(b_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_b31.grid(row=2, column=0)
+
+entry_b32 = Entry(b_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_b32.grid(row=2, column=1)
+
+entry_b33 = Entry(b_frame_matrix, width=3, font=('Arial', 24), justify="center")
+entry_b33.grid(row=2, column=2)
+
 
 # RIGHT > LOWER FRAME
 
