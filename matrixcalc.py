@@ -222,7 +222,7 @@ lower_frame.columnconfigure(1, weight=1)
 
 # RIGHT > LOWER > RESULT FRAME
 
-result_frame = Frame(lower_frame, height="275", width="370", bg="red")
+result_frame = Frame(lower_frame, height="275", width="325", bg="red")
 result_frame.grid(row=0, column=0, sticky="news")
 result_frame.columnconfigure(0, weight=1)
 result_frame.rowconfigure(0, weight=1)
@@ -234,15 +234,26 @@ result_frame_header.grid(row=0, column=0, sticky="news")
 
 result_header = Label(result_frame_header, text="RESULT", font=('Arial', 16), fg="#1f2833",
                  bg="#c5c6c7")
-result_header.place(x=140, y=50)
+result_header.place(x=110, y=50)
 
 result_frame_matrix = Frame(result_frame, height="210", width="370", bg="#c5c6c7")
 result_frame_matrix.grid(row=1, column=0, sticky="news")
 
 
+
 # RIGHT > LOWER > EXTRA FRAME
 
-extra_frame = Frame(lower_frame, height="275", width="280", bg="green")
+extra_frame = Frame(lower_frame, height="275", width="325", bg="#c5c6c7")
 extra_frame.grid(row=0, column=1, sticky="news")
+extra_frame.columnconfigure(0, weight=1)
+extra_frame.rowconfigure(0, weight=1)
+
+extra_frame_header = Frame(extra_frame, height="65", width="370", bg="#c5c6c7")
+extra_frame_header.grid(row=0, column=0, sticky="news")
+
+extra_header = Label(extra_frame_header, text="DETERMINANT/TRACE", font=('Arial', 16), fg="#1f2833",
+                 bg="#c5c6c7")
+extra_header.place(x=20, y=50)
+
 
 window.mainloop()
