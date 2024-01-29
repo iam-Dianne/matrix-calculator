@@ -58,6 +58,23 @@ def compute_determinant_b():
     det_result.config(text=result)
 
 
+def transpose_a():
+    matrix_a = get_matrix_a()
+
+    result = np.transpose(matrix_a)
+    result_string = np.array2string(result, separator='    ').replace('[', '').replace(']', '')
+
+    matrix_result.config(text=result_string)
+
+
+def transpose_b():
+    matrix_b = get_matrix_b()
+
+    result = np.transpose(matrix_b)
+    result_string = np.array2string(result, separator='    ').replace('[', '').replace(']', '')
+
+    matrix_result.config(text=result_string)
+
 def compute_addition():
     matrix_a = get_matrix_a()
     matrix_b = get_matrix_b()
@@ -125,11 +142,11 @@ btn_determinant_b = Button(operations_frame, text="Determinant of B", font=('Ari
 btn_determinant_b.grid(row=1, pady=3)
 
 btn_transpose_a = Button(operations_frame, text="Transpose A", font=('Arial', 10), fg="#1f2833",
-                         background="#c5c6c7", width="18")
+                         background="#c5c6c7", width="18", command=transpose_a)
 btn_transpose_a.grid(row=2, pady=3)
 
 btn_transpose_b = Button(operations_frame, text="Transpose B", font=('Arial', 10), fg="#1f2833",
-                         background="#c5c6c7", width="18")
+                         background="#c5c6c7", width="18", command=transpose_b)
 btn_transpose_b.grid(row=3, pady=3)
 
 btn_cofactor = Button(operations_frame, text="Cofactor", font=('Arial', 10), fg="#1f2833",
