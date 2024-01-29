@@ -54,7 +54,7 @@ def compute_determinant_a():
     determinant = np.linalg.det(matrix_a)
     result = round(determinant)
 
-    return result
+    det_result.config(text=result)
 
 
 def compute_determinant_b():
@@ -62,7 +62,7 @@ def compute_determinant_b():
     determinant = np.linalg.det(matrix_b)
     result = round(determinant)
 
-    return result
+    det_result.config(text=result)
 
 
 window = Tk()
@@ -104,11 +104,11 @@ operations_frame.columnconfigure(0, weight=1)
 
 
 btn_determinant_a = Button(operations_frame, text="Determinant of A", font=('Arial', 10), fg="#1f2833",
-                         background="#c5c6c7", width="18", command=compute_determinant_b)
+                         background="#c5c6c7", width="18", command=compute_determinant_a)
 btn_determinant_a.grid(row=0, column=0, pady=3)
 
 btn_determinant_b = Button(operations_frame, text="Determinant of B", font=('Arial', 10), fg="#1f2833",
-                         background="#c5c6c7", width="18")
+                         background="#c5c6c7", width="18", command=compute_determinant_b)
 btn_determinant_b.grid(row=1, pady=3)
 
 btn_transpose_a = Button(operations_frame, text="Transpose A", font=('Arial', 10), fg="#1f2833",
@@ -319,6 +319,10 @@ extra_frame_header.grid(row=0, column=0, sticky="news")
 extra_header = Label(extra_frame_header, text="DETERMINANT/TRACE", font=('Arial', 16), fg="#1f2833",
                  bg="#c5c6c7")
 extra_header.place(x=20, y=50)
+
+det_result = Label(extra_frame_header, text="", font=('Arial', 30, 'bold'), fg="#1f2833",
+                 bg="#c5c6c7")
+det_result.place(x=100, y=100)
 
 
 #get_matrix_a()
