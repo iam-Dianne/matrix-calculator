@@ -1,4 +1,48 @@
 from tkinter import *
+import numpy as np
+
+def valid_input(value):
+    try:
+        int(value)
+        return True
+    except:
+        return
+
+def get_matrix_a():
+
+    a11 = entry_a11.get()
+    a12 = entry_a12.get()
+    a13 = entry_a13.get()
+    a21 = entry_a21.get()
+    a22 = entry_a22.get()
+    a23 = entry_a23.get()
+    a31 = entry_a31.get()
+    a32 = entry_a32.get()
+    a33 = entry_a33.get()
+
+    matrix_a = np.array([
+        [a11, a12, a13],
+        [a21, a22, a23],
+        [a31, a32, a33]
+    ])
+
+def get_matrix_b():
+    b11 = entry_b11.get()
+    b12 = entry_b12.get()
+    b13 = entry_b13.get()
+    b21 = entry_b21.get()
+    b22 = entry_b22.get()
+    b23 = entry_b23.get()
+    b31 = entry_b31.get()
+    b32 = entry_b32.get()
+    b33 = entry_b33.get()
+
+    matrix_b = np.array([
+        [b11, b12, b13],
+        [b21, b22, b23],
+        [b31, b32, b33]
+    ])
+
 
 window = Tk()
 window.geometry("900x550")
@@ -39,7 +83,7 @@ operations_frame.columnconfigure(0, weight=1)
 
 
 btn_determinant_a = Button(operations_frame, text="Determinant of A", font=('Arial', 10), fg="#1f2833",
-                         background="#c5c6c7", width="18")
+                         background="#c5c6c7", width="18", command=get_matrix_b)
 btn_determinant_a.grid(row=0, column=0, pady=3)
 
 btn_determinant_b = Button(operations_frame, text="Determinant of B", font=('Arial', 10), fg="#1f2833",
@@ -256,4 +300,7 @@ extra_header = Label(extra_frame_header, text="DETERMINANT/TRACE", font=('Arial'
 extra_header.place(x=20, y=50)
 
 
+#get_matrix_a()
+
 window.mainloop()
+
