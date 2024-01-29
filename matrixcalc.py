@@ -21,10 +21,13 @@ def get_matrix_a():
     a33 = entry_a33.get()
 
     matrix_a = np.array([
-        [a11, a12, a13],
-        [a21, a22, a23],
-        [a31, a32, a33]
+        [int(a11), int(a12), int(a13)],
+        [int(a21), int(a22), int(a23)],
+        [int(a31), int(a32), int(a33)]
     ])
+
+    return matrix_a
+
 
 def get_matrix_b():
     b11 = entry_b11.get()
@@ -42,6 +45,17 @@ def get_matrix_b():
         [b21, b22, b23],
         [b31, b32, b33]
     ])
+
+    return matrix_b
+
+
+def compute_determinant_a():
+    matrix_a = get_matrix_a()
+    determinant = np.linalg.det(matrix_a)
+    result = round(determinant)
+
+    return result
+
 
 
 window = Tk()
@@ -83,7 +97,7 @@ operations_frame.columnconfigure(0, weight=1)
 
 
 btn_determinant_a = Button(operations_frame, text="Determinant of A", font=('Arial', 10), fg="#1f2833",
-                         background="#c5c6c7", width="18", command=get_matrix_b)
+                         background="#c5c6c7", width="18", command=compute_determinant_a)
 btn_determinant_a.grid(row=0, column=0, pady=3)
 
 btn_determinant_b = Button(operations_frame, text="Determinant of B", font=('Arial', 10), fg="#1f2833",
