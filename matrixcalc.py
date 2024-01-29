@@ -1,13 +1,6 @@
 from tkinter import *
 import numpy as np
 
-def valid_input(value):
-    try:
-        int(value)
-        return True
-    except:
-        return
-
 def get_matrix_a():
 
     a11 = entry_a11.get()
@@ -63,6 +56,26 @@ def compute_determinant_b():
     result = round(determinant)
 
     det_result.config(text=result)
+
+
+def compute_addition():
+    matrix_a = get_matrix_a()
+    matrix_b = get_matrix_b()
+
+    result = matrix_a + matrix_b
+    result_string = np.array2string(result, separator='    ').replace('[', '').replace(']', '')
+
+    matrix_result.config(text=result_string)
+
+
+def compute_subtraction():
+    matrix_a = get_matrix_a()
+    matrix_b = get_matrix_b()
+
+    result = matrix_a - matrix_b
+    result_string = np.array2string(result, separator='    ').replace('[', '').replace(']', '')
+
+    matrix_result.config(text=result_string)
 
 
 window = Tk()
@@ -132,11 +145,11 @@ btn_trace = Button(operations_frame, text="Trace", font=('Arial', 10), fg="#1f28
 btn_trace.grid(row=6, pady=3)
 
 btn_add = Button(operations_frame, text="Add", font=('Arial', 10), fg="#1f2833",
-                         background="#c5c6c7", width="18")
+                         background="#c5c6c7", width="18", command=compute_addition)
 btn_add.grid(row=7, pady=3)
 
 btn_subtract = Button(operations_frame, text="Subtract", font=('Arial', 10), fg="#1f2833",
-                         background="#c5c6c7", width="18")
+                         background="#c5c6c7", width="18", command=compute_subtraction)
 btn_subtract.grid(row=8, pady=3)
 
 btn_mult_ab = Button(operations_frame, text="Multipy AB", font=('Arial', 10), fg="#1f2833",
@@ -304,6 +317,9 @@ result_header.place(x=110, y=50)
 result_frame_matrix = Frame(result_frame, height="210", width="370", bg="#c5c6c7")
 result_frame_matrix.grid(row=1, column=0, sticky="news")
 
+matrix_result = Label(result_frame_matrix, text="", font=('Arial', 20, 'bold'), fg="#1f2833",
+                 bg="#c5c6c7")
+matrix_result.place(x=75, y=10)
 
 
 # RIGHT > LOWER > EXTRA FRAME
