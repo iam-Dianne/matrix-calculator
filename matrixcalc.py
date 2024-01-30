@@ -81,6 +81,21 @@ def transpose_b():
     matrix_result.config(text=result_string)
 
 
+def get_inverse():
+    matrix_a = get_matrix_a()
+    matrix_b = get_matrix_b()
+
+    if matrix_a is not None:
+        return np.linalg.inv(matrix_a)
+    elif matrix_b is not None:
+        return np.linalg.inv(matrix_b)
+    else:
+        return None
+
+def inverse_result():
+    result = get_inverse()
+    matrix_result.config(text=result, font=('Arial', 12, 'bold'))
+
 def get_trace():
     matrix_a = get_matrix_a()
     matrix_b = get_matrix_b()
@@ -96,6 +111,7 @@ def get_trace():
 def trace_result():
     result = get_trace()
     det_result.config(text=result)
+
 
 def compute_addition():
     matrix_a = get_matrix_a()
@@ -195,7 +211,7 @@ btn_cofactor = Button(operations_frame, text="Cofactor", font=('Arial', 10), fg=
 btn_cofactor.grid(row=4, pady=3)
 
 btn_inverse = Button(operations_frame, text="Inverse", font=('Arial', 10), fg="#1f2833",
-                         background="#c5c6c7", width="18")
+                         background="#c5c6c7", width="18", command=inverse_result)
 btn_inverse.grid(row=5, pady=3)
 
 btn_trace = Button(operations_frame, text="Trace", font=('Arial', 10), fg="#1f2833",
