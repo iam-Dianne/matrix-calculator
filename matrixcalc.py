@@ -13,11 +13,14 @@ def get_matrix_a():
     a32 = entry_a32.get()
     a33 = entry_a33.get()
 
-    matrix_a = np.array([
-        [int(a11), int(a12), int(a13)],
-        [int(a21), int(a22), int(a23)],
-        [int(a31), int(a32), int(a33)]
-    ])
+    if a11 and a12 and a13 and a21 and a22 and a23 and a31 and a32 and a33:
+        matrix_a = np.array([
+            [int(a11), int(a12), int(a13)],
+            [int(a21), int(a22), int(a23)],
+            [int(a31), int(a32), int(a33)]
+        ])
+    else:
+        matrix_a = None
 
     return matrix_a
 
@@ -33,14 +36,16 @@ def get_matrix_b():
     b32 = entry_b32.get()
     b33 = entry_b33.get()
 
-    matrix_b = np.array([
-        [int(b11), int(b12), int(b13)],
-        [int(b21), int(b22), int(b23)],
-        [int(b31), int(b32), int(b33)]
-    ])
+    if b11 and b12 and b13 and b21 and b22 and b23 and b31 and b32 and b33:
+        matrix_b = np.array([
+            [int(b11), int(b12), int(b13)],
+            [int(b21), int(b22), int(b23)],
+            [int(b31), int(b32), int(b33)]
+        ])
+    else:
+        matrix_b = None
 
     return matrix_b
-
 
 def compute_determinant_a():
     matrix_a = get_matrix_a()
@@ -74,6 +79,23 @@ def transpose_b():
     result_string = np.array2string(result, separator='    ').replace('[', '').replace(']', '')
 
     matrix_result.config(text=result_string)
+
+
+def get_trace():
+    matrix_a = get_matrix_a()
+    matrix_b = get_matrix_b()
+
+    if matrix_a is not None:
+       return np.trace(matrix_a, dtype=int)
+    elif matrix_b is not None:
+        return np.trace(matrix_b, dtype=int)
+    else:
+        return None
+
+
+def trace_result():
+    result = get_trace()
+    det_result.config(text=result)
 
 def compute_addition():
     matrix_a = get_matrix_a()
@@ -158,7 +180,7 @@ btn_inverse = Button(operations_frame, text="Inverse", font=('Arial', 10), fg="#
 btn_inverse.grid(row=5, pady=3)
 
 btn_trace = Button(operations_frame, text="Trace", font=('Arial', 10), fg="#1f2833",
-                         background="#c5c6c7", width="18")
+                         background="#c5c6c7", width="18", command=trace_result)
 btn_trace.grid(row=6, pady=3)
 
 btn_add = Button(operations_frame, text="Add", font=('Arial', 10), fg="#1f2833",
