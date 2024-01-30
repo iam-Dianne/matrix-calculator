@@ -117,6 +117,25 @@ def compute_subtraction():
     matrix_result.config(text=result_string)
 
 
+def compute_multiplication_ab():
+    matrix_a = get_matrix_a()
+    matrix_b = get_matrix_b()
+
+    result = (np.matmul(matrix_a, matrix_b))
+    result_string = np.array2string(result, separator='    ').replace('[', '').replace(']', '')
+
+    matrix_result.config(text=result_string)
+
+def compute_multiplication_ba():
+    matrix_a = get_matrix_a()
+    matrix_b = get_matrix_b()
+
+    result = (np.matmul(matrix_b, matrix_a))
+    result_string = np.array2string(result, separator='    ').replace('[', '').replace(']', '')
+
+    matrix_result.config(text=result_string)
+
+
 window = Tk()
 window.geometry("900x550")
 window.title("Matrix Calculator")
@@ -192,11 +211,11 @@ btn_subtract = Button(operations_frame, text="Subtract", font=('Arial', 10), fg=
 btn_subtract.grid(row=8, pady=3)
 
 btn_mult_ab = Button(operations_frame, text="Multipy AB", font=('Arial', 10), fg="#1f2833",
-                         background="#c5c6c7", width="18")
+                         background="#c5c6c7", width="18", command=compute_multiplication_ab)
 btn_mult_ab.grid(row=9, pady=3)
 
 btn_mult_ba = Button(operations_frame, text="Multiply BA", font=('Arial', 10), fg="#1f2833",
-                         background="#c5c6c7", width="18")
+                         background="#c5c6c7", width="18", command=compute_multiplication_ba)
 btn_mult_ba.grid(row=10, pady=3)
 
 # RIGHT FRAME
