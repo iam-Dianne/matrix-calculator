@@ -120,7 +120,7 @@ def compute_addition():
     result = matrix_a + matrix_b
     result_string = np.array2string(result, separator='    ').replace('[', '').replace(']', '')
 
-    matrix_result.config(text=result_string)
+    matrix_result.config(text=result_string,  font=('Arial', 20, 'bold'))
 
 
 def compute_subtraction():
@@ -130,7 +130,7 @@ def compute_subtraction():
     result = matrix_a - matrix_b
     result_string = np.array2string(result, separator='    ').replace('[', '').replace(']', '')
 
-    matrix_result.config(text=result_string)
+    matrix_result.config(text=result_string,  font=('Arial', 20, 'bold'))
 
 
 def compute_multiplication_ab():
@@ -140,7 +140,7 @@ def compute_multiplication_ab():
     result = (np.matmul(matrix_a, matrix_b))
     result_string = np.array2string(result, separator='    ').replace('[', '').replace(']', '')
 
-    matrix_result.config(text=result_string)
+    matrix_result.config(text=result_string,  font=('Arial', 20, 'bold'))
 
 def compute_multiplication_ba():
     matrix_a = get_matrix_a()
@@ -149,7 +149,7 @@ def compute_multiplication_ba():
     result = (np.matmul(matrix_b, matrix_a))
     result_string = np.array2string(result, separator='    ').replace('[', '').replace(']', '')
 
-    matrix_result.config(text=result_string)
+    matrix_result.config(text=result_string,  font=('Arial', 20, 'bold'))
 
 
 window = Tk()
@@ -206,33 +206,29 @@ btn_transpose_b = Button(operations_frame, text="Transpose B", font=('Arial', 10
                          background="#c5c6c7", width="18", command=transpose_b)
 btn_transpose_b.grid(row=3, pady=3)
 
-btn_cofactor = Button(operations_frame, text="Cofactor", font=('Arial', 10), fg="#1f2833",
-                         background="#c5c6c7", width="18")
-btn_cofactor.grid(row=4, pady=3)
-
 btn_inverse = Button(operations_frame, text="Inverse", font=('Arial', 10), fg="#1f2833",
                          background="#c5c6c7", width="18", command=inverse_result)
-btn_inverse.grid(row=5, pady=3)
+btn_inverse.grid(row=4, pady=3)
 
 btn_trace = Button(operations_frame, text="Trace", font=('Arial', 10), fg="#1f2833",
                          background="#c5c6c7", width="18", command=trace_result)
-btn_trace.grid(row=6, pady=3)
+btn_trace.grid(row=5, pady=3)
 
 btn_add = Button(operations_frame, text="Add", font=('Arial', 10), fg="#1f2833",
                          background="#c5c6c7", width="18", command=compute_addition)
-btn_add.grid(row=7, pady=3)
+btn_add.grid(row=6, pady=3)
 
 btn_subtract = Button(operations_frame, text="Subtract", font=('Arial', 10), fg="#1f2833",
                          background="#c5c6c7", width="18", command=compute_subtraction)
-btn_subtract.grid(row=8, pady=3)
+btn_subtract.grid(row=7, pady=3)
 
 btn_mult_ab = Button(operations_frame, text="Multipy AB", font=('Arial', 10), fg="#1f2833",
                          background="#c5c6c7", width="18", command=compute_multiplication_ab)
-btn_mult_ab.grid(row=9, pady=3)
+btn_mult_ab.grid(row=8, pady=3)
 
 btn_mult_ba = Button(operations_frame, text="Multiply BA", font=('Arial', 10), fg="#1f2833",
                          background="#c5c6c7", width="18", command=compute_multiplication_ba)
-btn_mult_ba.grid(row=10, pady=3)
+btn_mult_ba.grid(row=9, pady=3)
 
 # RIGHT FRAME
 
